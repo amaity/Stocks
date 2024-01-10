@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 import os.path
 import datetime
-from mylist import myWatchList
+from myequitylist import myWatchList
 
 equity_url = "https://archives.nseindia.com/content/equities/EQUITY_L.csv"
 nifty100_url = "https://nsearchives.nseindia.com/content/indices/ind_nifty100list.csv"

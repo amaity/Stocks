@@ -1,6 +1,7 @@
 #df = pd.DataFrame.from_records([dict(a=1, b=2), dict(a=2, b=3)])
 import pandas as pd
 import yfinance as yf
+from datetime import date, timedelta
 
 cwhList = [
         ["5PAISA", 507.5],
@@ -21,11 +22,14 @@ cwhList = [
         ["ZYDUSLIFE", 1008]
 ]
 
+today = date.today()
+yesterday = today - timedelta(3)
+
 def getCurrentPrice(cwhList):
     for entry in cwhList:
-        stock = yf.Ticker(f"{entry[0]}.NS")
-        price = stock.info['currentPrice']
-        entry.append(price)
+        data = yf.download(f"{entry[0]}.NS", start=yesterday, end=today)
+        print(f"Done:{entry[0]}")
+        entry.append(data['Close'].iloc[-1])
     return cwhList
 
 data = getCurrentPrice(cwhList)
