@@ -1,6 +1,6 @@
 etfList = [
-    "ITBEES",
     "SETFNIF50",
+    "ITBEES",
     "NIFTYBEES",
     "PHARMABEES",
     "PSUBNKBEES",
