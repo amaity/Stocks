@@ -4,6 +4,14 @@ import yfinance as yf
 from prettytable import PrettyTable
 from myequitylist import myWatchList
 
+def fetchStockNames(csvFile=0):
+    if csvFile:
+        equityDetails = pd.read_csv(csvFile)
+        equityDetails.columns = equityDetails.columns.str.lower()
+        names = equityDetails['symbol'].to_list()
+    return names
+
+
 def getGroupTwenty(stockList):
     x = PrettyTable(["Name", "DateGP20", "GP20Pcnt", "CurrentP", "Margin"])
     x.align = 'r'
@@ -34,4 +42,5 @@ def getGroupTwenty(stockList):
     print(x)
 
 if __name__ == "__main__":
-    getGroupTwenty(myWatchList)
+    niftyList = fetchStockNames(csvFile="ind_nifty200list.csv")
+    getGroupTwenty(niftyList)
