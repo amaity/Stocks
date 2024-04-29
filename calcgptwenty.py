@@ -42,5 +42,5 @@ def getGroupTwenty(stockList):
     print(x)
 
 if __name__ == "__main__":
-    niftyList = fetchStockNames(csvFile="ind_nifty200list.csv")
+    niftyList = myWatchList #fetchStockNames(csvFile="ind_nifty200list.csv")
     getGroupTwenty(niftyList)
